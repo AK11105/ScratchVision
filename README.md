@@ -1,4 +1,4 @@
-# CNN Learning Timeline: From Scratch Implementations
+# ScratchVision
 
 A comprehensive, modular project for learning and implementing Convolutional Neural Networks (CNNs) from classical architectures to modern designs. This project serves as both a learning resource and a reference implementation for academic and professional purposes.
 

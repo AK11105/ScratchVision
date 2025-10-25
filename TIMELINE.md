@@ -12,18 +12,6 @@ This roadmap guides you through the evolution of Convolutional Neural Networks (
 * **Learning Focus**: Understand early feature hierarchies and biological inspiration.
 * **Paper**: [Neocognitron: A Self-Organizing Neural Network Model for Pattern Recognition Unaffected by Shift in Position](https://www.rctn.org/bruno/public/papers/Fukushima1980.pdf)
 
-### 🧠 **Backpropagation (1986)** – ⚙️ *Must Implement*
-
-* **Key Innovation**: Enabled gradient-based end-to-end training for multilayer networks.
-* **Learning Focus**: Implement backprop manually (no autograd) for a 2–3 layer MLP to internalize gradient flow.
-* **Paper**: [Learning Representations by Back-Propagating Errors](https://www.nature.com/articles/323533a0)
-
-### 🧠 **Time-Delay Neural Network (TDNN, 1989)** – 📖 *Read Only*
-
-* **Key Innovation**: Introduced local receptive fields and weight sharing (temporal precursor to CNNs).
-* **Learning Focus**: Understand how convolution emerged from sequence modeling.
-* **Paper**: [Phoneme Recognition Using TDNNs](https://ieeexplore.ieee.org/document/21701)
-
 ---
 
 ## 2. Classical CNNs

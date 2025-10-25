@@ -1,0 +1,27 @@
+input_size: [16, 16]
+layers:
+  - type: S
+    planes: 24
+    rf: 5
+    out_map: [16, 16]
+    padding: 2   # to maintain 16x16
+  - type: C
+    planes: 24
+    rf: 7
+    out_map: [10, 10]
+  - type: S
+    planes: 24
+    rf: 3
+    out_map: [8, 8]
+  - type: C
+    planes: 24
+    rf: 3
+    out_map: [6, 6]
+  - type: S
+    planes: 24
+    rf: 5
+    out_map: [2, 2]
+  - type: C
+    planes: 24
+    rf: 2
+    out_map: [1, 1]

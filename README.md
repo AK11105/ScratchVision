@@ -30,4 +30,11 @@ tests/          # Unit tests for project modules
 * Visualization of training curves, filters, and feature maps.
 * Reproducible experiments with checkpointing and logs.
 
+## ⚙️ Timelines
+
+* **<a href="documentation/timelines/CLASSIFICATION.md">Classification</a>:** Foundation of vision modelling
+* **<a href="documentation/timelines/DETECTION.md">Detection</a>:** From *what* to *where*
+* **<a href="documentation/timelines/SEGMENTATION.md">Segmentation</a>:** From *where* to *which pixels*
+* **<a href="documentation/timelines/RECOGNITION.md">Recognition</a>:** From *pixels* to *meaning*
+
 ---

@@ -1,0 +1,77 @@
+# lenet.yaml
+# LeNet-5 Architecture and Training Configuration
+# Compatible with your Neocognitron-style structured format
+
+model:
+  name: LeNet5
+  input_size: [32, 32]
+  input_channels: 1
+  num_classes: 10
+  activation: ScaledTanH
+  rbf_output: true
+
+layers:
+  - type: C
+    planes: 6
+    rf: 5
+    out_map: [28, 28]
+    stride: 1
+    padding: 0
+    description: "C1 — convolution layer with 6 feature maps, 5x5 receptive field."
+
+  - type: S
+    planes: 6
+    rf: 2
+    out_map: [14, 14]
+    stride: 2
+    trainable_params: true
+    description: "S2 — average pooling + trainable coefficient and bias."
+
+  - type: C
+    planes: 16
+    rf: 5
+    out_map: [10, 10]
+    connections: "Partial connection scheme from S2 → C3."
+    description: "C3 — convolution with selective connectivity."
+
+  - type: S
+    planes: 16
+    rf: 2
+    out_map: [5, 5]
+    stride: 2
+    trainable_params: true
+    description: "S4 — subsampling (average pooling) with trainable weight and bias."
+
+  - type: C
+    planes: 120
+    rf: 5
+    out_map: [1, 1]
+    stride: 1
+    description: "C5 — fully connected convolution layer (5x5 kernel)."
+
+  - type: F
+    units: 84
+    description: "F6 — fully connected layer with 84 units."
+
+  - type: RBF
+    units: 10
+    description: "Output layer — Euclidean RBFs for 10 classes."
+
+training:
+  epochs: 20
+  batch_size: 64
+  loss_function: MSELoss
+  optimizer:
+    type: SGD
+    params:
+      momentum: 0.9
+      weight_decay: 0.0005
+
+  lr_schedule:
+    - { epoch_range: [1, 2], learning_rate: 0.0005 }
+    - { epoch_range: [3, 5], learning_rate: 0.0002 }
+    - { epoch_range: [6, 8], learning_rate: 0.0001 }
+    - { epoch_range: [9, 12], learning_rate: 0.00005 }
+    - { epoch_range: [13, 20], learning_rate: 0.00001 }
+
+seed: 42

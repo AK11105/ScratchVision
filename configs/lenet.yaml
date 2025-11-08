@@ -4,14 +4,14 @@
 
 model:
   name: LeNet5
-  input_size: [32, 32]
+  input_size: 32
   input_channels: 1
   num_classes: 10
   activation: ScaledTanH
   rbf_output: true
 
 layers:
-  - type: C
+  - type: C1
     planes: 6
     rf: 5
     out_map: [28, 28]
@@ -19,7 +19,7 @@ layers:
     padding: 0
     description: "C1 — convolution layer with 6 feature maps, 5x5 receptive field."
 
-  - type: S
+  - type: S2
     planes: 6
     rf: 2
     out_map: [14, 14]
@@ -27,14 +27,14 @@ layers:
     trainable_params: true
     description: "S2 — average pooling + trainable coefficient and bias."
 
-  - type: C
+  - type: C3
     planes: 16
     rf: 5
     out_map: [10, 10]
     connections: "Partial connection scheme from S2 → C3."
     description: "C3 — convolution with selective connectivity."
 
-  - type: S
+  - type: S4
     planes: 16
     rf: 2
     out_map: [5, 5]
@@ -42,14 +42,14 @@ layers:
     trainable_params: true
     description: "S4 — subsampling (average pooling) with trainable weight and bias."
 
-  - type: C
+  - type: C5
     planes: 120
     rf: 5
     out_map: [1, 1]
     stride: 1
     description: "C5 — fully connected convolution layer (5x5 kernel)."
 
-  - type: F
+  - type: F6
     units: 84
     description: "F6 — fully connected layer with 84 units."
 
@@ -60,7 +60,11 @@ layers:
 training:
   epochs: 20
   batch_size: 64
-  loss_function: MSELoss
+  loss_function: RBFLoss
+  num_workers: 0
+  shuffle_train: True
+  target_accuracy: 98
+  update_frequency: 200
   optimizer:
     type: SGD
     params:
@@ -75,3 +79,4 @@ training:
     - { epoch_range: [13, 20], learning_rate: 0.00001 }
 
 seed: 42
+device: "cpu"

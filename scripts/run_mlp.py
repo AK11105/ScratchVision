@@ -13,7 +13,7 @@ if __name__ == "__main__":
     from data import download_FashionMNIST
     from src.utils.loaders import create_DataLoaders
     from src.models.MLP import MultiLayerPerceptron
-    from src.trainers.train_classifier import train_classifier
+    from src.trainers.train_mlp import train_classifier
 
     # Device
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')

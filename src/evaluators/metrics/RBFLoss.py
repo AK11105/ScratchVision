@@ -35,7 +35,7 @@ class DiscriminativeRBFLoss(nn.Module):
         # log-sum-exp for numerical stability
         # log(exp(-margin) + Σ exp(-d_j))
         log_term = torch.logsumexp(-dists, dim=1)
-        log_term = torch.log(torch.exp(-self.margin) + torch.exp(log_term))
+        log_term = torch.log(torch.exp(torch.tensor(-self.margin, device=log_term.device, dtype=log_term.dtype))+ torch.exp(log_term))
 
         # total loss
         loss = (d_correct + self.lambda_factor * log_term).mean()

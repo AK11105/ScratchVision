@@ -2,9 +2,9 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 
-from ..evaluators import calculate_accuracy
+from ...evaluators.metrics import calculate_accuracy
 
-def train_classifier_epoch(model, dataloader, criterion, optimizer, device, update_freq=10):
+def train_epoch(model, dataloader, criterion, optimizer, device, update_freq=10):
     
     #Set model to training mode
     model.train()
@@ -21,8 +21,8 @@ def train_classifier_epoch(model, dataloader, criterion, optimizer, device, upda
         optimizer.zero_grad()
         
         #Forward pass
-        outputs = model(features)
-        loss = criterion(outputs, labels)
+        outputs, features = model(features)
+        loss = criterion(features, labels)
         
         #Backpropagation
         loss.backward()

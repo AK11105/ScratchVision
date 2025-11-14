@@ -1,7 +1,7 @@
 import torch
-from .metrics.accuracy import calculate_accuracy
+from ..metrics.accuracy import calculate_accuracy
 
-def evaluate(model, dataloader, criterion, device):
+def evaluate_classifier(model, dataloader, criterion, device):
     #Set to eval mode
     model.eval()
     
@@ -16,8 +16,8 @@ def evaluate(model, dataloader, criterion, device):
         for features, labels in dataloader:
             features, labels = features.to(device), labels.to(device)
             
-            outputs, features = model(features)
-            loss = criterion(features, labels)
+            outputs = model(features)
+            loss = criterion(outputs, labels)
             
             accuracy = calculate_accuracy(outputs, labels)
             total_loss+=loss.item()

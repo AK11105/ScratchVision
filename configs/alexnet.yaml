@@ -1,0 +1,92 @@
+device: cpu
+model:
+  name: AlexNet
+  input_size: [3, 224, 224]
+
+  conv1:
+    in_channels: 3
+    out_channels: 96
+    kernel_size: 11
+    stride: 4
+    padding: 2
+    activation: ReLU
+    normalization: LRN        # Local Response Normalization
+    pool:
+      type: MaxPool2d
+      kernel_size: 3
+      stride: 2
+
+  conv2:
+    in_channels: 96
+    out_channels: 256
+    kernel_size: 5
+    stride: 1
+    padding: 2
+    activation: ReLU
+    normalization: LRN
+    pool:
+      type: MaxPool2d
+      kernel_size: 3
+      stride: 2
+
+  conv3:
+    in_channels: 256
+    out_channels: 384
+    kernel_size: 3
+    stride: 1
+    padding: 1
+    activation: ReLU
+
+  conv4:
+    in_channels: 384
+    out_channels: 384
+    kernel_size: 3
+    stride: 1
+    padding: 1
+    activation: ReLU
+
+  conv5:
+    in_channels: 384
+    out_channels: 256
+    kernel_size: 3
+    stride: 1
+    padding: 1
+    activation: ReLU
+    pool:
+      type: MaxPool2d
+      kernel_size: 3
+      stride: 2
+
+  fc1:
+    in_features: 9216
+    out_features: 4096
+    activation: ReLU
+    dropout: 0.5
+
+  fc2:
+    in_features: 4096
+    out_features: 4096
+    activation: ReLU
+    dropout: 0.5
+
+  fc3:
+    in_features: 4096
+    out_features: 1000
+    activation: None
+
+training:
+  batch_size: 32
+  num_workers: 0
+  shuffle_train: True
+  epochs: 5
+  criterion: CrossEntropy
+  update_freq: 5
+  target_top1_error: 0.12
+  target_top3_error: 0.04
+  target_top5_error: 0.02
+  optimizer:
+    type: SGD
+    lr: 0.01
+    momentum: 0.9
+    weight_decay: 0.0005
+

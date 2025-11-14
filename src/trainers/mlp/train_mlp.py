@@ -2,7 +2,7 @@ import torch
 import time
 
 from .train_epoch import train_classifier_epoch
-from ...evaluators import evaluate_classifier
+from ...evaluators.eval.evaluate_model import evaluate_classifier
 
 def train_classifier(num_epochs, model, train_loader, test_loader, criterion, optimizer, target_accuracy, device, update_freq):
     train_losses = []

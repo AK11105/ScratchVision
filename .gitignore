@@ -13,3 +13,6 @@ struct.txt
 
 # Virtual environments
 .venv
+
+alexnet_detailed.pth
+alexnet_weights.pt

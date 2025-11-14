@@ -110,10 +110,10 @@ where sum runs over n "adjacent" kernel maps at same spatial position and N is t
 - The ReLU non-linearity is applied to the output of every convolutional and fully-connected layer.
 
 - First Conv. Layer filters 224 x 224 x 3 input image with 96 kernels of size 11 x 11 x 3 with stride of 4 
-- Second Conv. Layer takes as input the (LRN and pooled) output of First Conv. layer and filters it with 256 filters of size 5 x 5 x 48.
+- Second Conv. Layer takes as input the (LRN and pooled) output of First Conv. layer and filters it with 256 filters of size 5 x 5 x 48. (actually 96, split into 2 gpus)
 - Third Conv. Layer has 384 kernels of size 3 x 3 x 256 to the (normalized, pooled) outputs of Second Conv. Layer
-- Fourth Conv. layer has 384 kernels of size 3 x 3 x 192
-- Fifth Conv. layer has 256 kernels of size 3 x 3 x 192
+- Fourth Conv. layer has 384 kernels of size 3 x 3 x 192 (actually 384, split into 2 gpus)
+- Fifth Conv. layer has 256 kernels of size 3 x 3 x 192 (actually 384, split into 2 gpus)
 - Third, Fourth, Fifth Conv. layers are connected to another without any intervening pooling or normalization layers
 - Fully Connected Layers have 4096 neurons each.
 

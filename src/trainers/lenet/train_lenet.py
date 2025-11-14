@@ -2,7 +2,7 @@ import torch
 import time
 
 from .train_lenet_epoch import train_epoch
-from ...evaluators import evaluate
+from ...evaluators.eval.evaluate_lenet import evaluate
 from ...utils import adjust_learning_rate
 
 def train_lenet(num_epochs, model, train_loader, test_loader, criterion, optimizer, target_accuracy, device, update_freq, lr_schedule):

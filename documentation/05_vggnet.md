@@ -67,7 +67,7 @@ Even though in our case, $1 \times 1$ convolution is essentially a linear projec
 
 **Batch and Optimization:** Mini-Batch Gradient Descent Algorithm with momentum, batch size is 256, momentum is 0.9
 
-**Regularization:** Weight Decay (L2 multiplier) set to $ 5 x 10^-4$, Dropout set with p=0.5
+**Regularization:** Weight Decay (L2 multiplier) set to $ 5 x 10^-4$, Dropout set with p=0.5 (only after first 2 fully connected)
 
 **Learning Rate and Schedule:** Initially set to 0.01, decreased by factor of 10 when validation didn't improve
 

@@ -16,3 +16,8 @@ struct.txt
 
 alexnet_detailed.pth
 alexnet_weights.pt
+
+#Model pth files
+
+*.pt
+*.pth

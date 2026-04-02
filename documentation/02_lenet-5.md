@@ -2,7 +2,7 @@
 
 ## Traditional Approach:
 
-![alt text](images/trad-approach.png)
+![alt text](images/lenet/trad-approach.png)
 
 System divided into 2 modules
 
@@ -28,7 +28,7 @@ CNN combine 3 architectural ideas to ensure some degree of shift, scale and dist
 - **Shared Weights (weight-replication)**
 - **Spatial/Temporal Subsampling**
 
-![alt text](images/cnn-arch.png)
+![alt text](images/lenet/cnn-arch.png)
 
 - Input: images, size normalized and centred
 - Each unit in a layer: recieves input from a set of units loaded in a small neighborhood in previous layer
@@ -110,7 +110,7 @@ A large degree of invariance to geometric transformations of the input can be ac
 - Input: 32 x 32 pixel image
 - Normalized so that background white corresponds to value of -0.1 and foreground black corresponds to a value of 1.175, This makes mean input ~ 0 and variance ~ 1 which accelerates learning
 
-![alt text](images/cnn-arch.png)
+![alt text](images/lenet/cnn-arch.png)
 
 Cx - Convolutional Layers
 
@@ -149,7 +149,7 @@ Fx - Fully Connected Layers
         - Last 1 takes input from all S2 feature maps
     - 1516 trainable parameters
     - 151,600 connections
-![alt text](images/connect-table.png)
+![alt text](images/lenet/connect-table.png)
 
 - **Layer S4**
     - 16 feature maps
@@ -189,7 +189,7 @@ Note:
     - One for each class, with 84 inputs each
     - Outputs of ach RBF unit y_i is computed
 
-    ![alt text](images/outputs.png)
+    ![alt text](images/lenet/outputs.png)
 
     - Each RBF unit computes the Euclidean distance between input vector and it's parameter vector
     - Output can be interpreted as penalty term measuring fit between input pattern and a model of class associated with RBF
@@ -217,7 +217,7 @@ Note:
     - simplest option: Max Likelihood Estimation criteria 
     - Equivalent to MSE for our case
 
-    ![alt text](images/mse.png)
+    ![alt text](images/lenet/mse.png)
 
     - yDp is output of the Dp-th RBF unit (i.e one that corresponds to correct class of input patter Zp)
 
@@ -234,7 +234,7 @@ Note:
     
     - To overcome => discriminative training criteria
 
-    ![alt text](images/newloss.png)
+    ![alt text](images/lenet/newloss.png)
 
     - Here, in addition to pushing down penalty for correct class like MSE, it also pulls up penalty for incorrect classes
 

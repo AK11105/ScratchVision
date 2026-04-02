@@ -8,7 +8,7 @@
 
 ## Architecture
 
-![](images/image.png)
+![](images/neocognitron/image.png)
 
 where, 
 
@@ -42,7 +42,7 @@ where n is the two dimensional co-ordinates representing the position of these c
 **S cells** have shunting type inhibitory inputs.
 - Output of an S cell in kl-th S plane in the l-th module  is described as
 
-![alt text](images/s-output.png)
+![alt text](images/neocognitron/s-output.png)
 
 where Q(x) is just **ReLU**
 
@@ -64,7 +64,7 @@ where Q(x) is just **ReLU**
 
 **Inhibitory cell VCl-1(n)** has inhibitory synaptic connections to **S cells** has an RMS style input to output type charactersitic
 
-![alt text](images/vc-output.png)
+![alt text](images/neocognitron/vc-output.png)
 
 where,
 
@@ -96,11 +96,11 @@ From output of S cell and V cell, the area from which a single cell recieves inp
 
 Output of C-cell in kl-th C-plane in the l-th module is given by 
 
-![alt text](images/c-output.png)
+![alt text](images/neocognitron/c-output.png)
 
 Inhibitory cell *Vsl(n)* sends inhibitory signals to this C cell ==> responsible for lateral inhibition (suppress unnessecary responses in surrounding cells) and yields output proportional to weighted mean of inputs
 
-![alt text](images/vs-output.png)
+![alt text](images/neocognitron/vs-output.png)
 
 - From output of C-cell and Vs cell, the efficiency of unmodifiable excitatory synapse *dl(v)* is set to be a monotonically decreasing function *|v|*. Thus dl(v) repsresnts strength of connection of S-cell to C-cell depending on spatial offset v
     - Strength decreases as distance |v| increases, S-cells closer to centre of C-cell's receptive field contribute more strongly
@@ -119,7 +119,7 @@ Inhibitory cell *Vsl(n)* sends inhibitory signals to this C cell ==> responsible
 
 - Input synapses (modifiable connections) to each represenatative S-cell, and all S-cells in same plane, are strengthened(reinforced) by specific amounts determined by their previous activity and defined by
 
-![alt text](images/s-reinforcement.png)
+![alt text](images/neocognitron/s-reinforcement.png)
 
 - Synapses in S-cell without representatives are not reinforced
 
@@ -134,7 +134,7 @@ Inhibitory cell *Vsl(n)* sends inhibitory signals to this C cell ==> responsible
 - **S-columns and S-planes**: In each S-layer, S-cells are grouped into "S-columns." Each S-column contains S-cells from all S-planes (each S-plane detects a different feature), but all have receptive fields at nearly the same position in the input.
 - Overlapping Columns: S-columns overlap, so a single S-cell can belong to multiple S-columns.
 
-![alt text](images/s-layer-column.png)
+![alt text](images/neocognitron/s-layer-column.png)
 
 - **Selecting Candidates**: When a stimulus pattern is presented, in each S-column, the S-cell with the largest output is chosen as a candidate for being a "representative."
     - This means several candidates may be chosen from the same S-plane (since S-columns overlap).
@@ -151,7 +151,7 @@ Inhibitory cell *Vsl(n)* sends inhibitory signals to this C cell ==> responsible
 
 ## Network Working
 
-![alt text](images/network-working.png)
+![alt text](images/neocognitron/network-working.png)
 
 - After training (“self-organization”), the neocognitron forms many feature-extracting cells—each becomes sensitive to specific parts or shapes (like A, B, C, etc.).
 

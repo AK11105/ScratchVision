@@ -78,7 +78,7 @@ where sum runs over n "adjacent" kernel maps at same spatial position and N is t
 
 ### Complete Architecture
 
-![alexnet](images/alexnet.png)
+![alexnet](images/alexnet/alexnet.png)
 
 - 8 layers with weights
 - First 5 are convolutional 

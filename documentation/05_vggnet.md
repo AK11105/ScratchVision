@@ -35,7 +35,7 @@ Width of conv layers (number of channels) is rather small, starting from 64 in f
 
 Inspite of large depth, number of weights in our nets is not greater than number of weights in a more shallow net with larger conv. layer widths and receptive fields.
 
-![net-config](images/net-config.png)
+![net-config](images/vggnet/net-config.png)
 
 ### Why $3 \times 3$
 
@@ -145,7 +145,7 @@ Inspite of same depth, Network C (has 3 $1 \times 1$ layers) performs worse than
 
 Scale jittering at trainning ($S \isin [256, 512]$) leads to significantly better results than training on image wit hfixed S=256, or S=384.
 
-![vggnet-results](images/vggnet-results.png)
+![vggnet-results](images/vggnet/vggnet-results.png)
 
 
 ### Multi Scale 
@@ -160,7 +160,7 @@ Variable S ($S \isin [S_min, S_max]$) ==> Q = { $S_min$, $0.5(S_min + S_max)$, $
 
 Result: Scale Jittering at test time leads to better performance
 
-![scale-jitter-test](images/scale-jitter-test.png)
+![scale-jitter-test](images/vggnet/scale-jitter-test.png)
 
 ### Multi-Crop Evaluation
 
@@ -168,7 +168,7 @@ Multiple Crops perform slightly better than dense evaluation
 
 But they are complementary, as combination outperforms
 
-![multi-crop](images/multicrop-eval.png)
+![multi-crop](images/vggnet/multicrop-eval.png)
 
 ### Conv-Net Fusion
 
